@@ -60,7 +60,14 @@ app.post('/webhook', async (req, res) => {
         let localError = null;
         
         try {
-            const response = await axios.post(`${LOCAL_SERVER_URL}/webhook`, webhookData, {
+            // Electron 내부 웹훅 서버로 직접 전달 (포트 3000)
+            const electronUrl = LOCAL_SERVER_URL.replace(':8081', ':3000');
+            const response = await axios.post(`${electronUrl}/internal-webhook`, {
+                type: 'webhook_signal',
+                data: webhookData,
+                source: 'heroku',
+                received_at: Date.now()
+            }, {
                 timeout: 10000,
                 headers: {
                     'Content-Type': 'application/json'
