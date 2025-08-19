@@ -1,0 +1,27 @@
+{
+  "name": "tradingview-webhook-server",
+  "version": "1.0.0",
+  "description": "TradingView webhook relay server for local trading bot",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "tradingview",
+    "webhook",
+    "trading",
+    "crypto",
+    "bot"
+  ],
+  "author": "Trading Bot",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.2",
+    "cors": "^2.8.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
